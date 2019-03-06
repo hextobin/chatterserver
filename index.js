@@ -1,7 +1,10 @@
 var app = require('express')()
 var http = require('http').Server(app)
-var io = require('socket.io')(http, {origins: 'localhost:3001'})
+var io = require('socket.io')(http)
 let users = []
+
+io.set('origins', 'localhost:3001:80')
+
 
 io.on('connection', function (socket) {
   console.log('a user has connected')
