@@ -1,9 +1,14 @@
 var app = require('express')()
+var cors = require('cors');
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 let users = []
 
-io.set('origins', 'http://localhost:3001:80')
+// io.set('origins', 'http://localhost:3001:80')
+
+app.use(cors({
+  origin: 'http://localhost:3001'
+}));
 
 
 io.on('connection', function (socket) {
