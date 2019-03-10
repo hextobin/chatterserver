@@ -21,16 +21,20 @@ io.on('connection', function (socket) {
     console.log(users)
     io.emit('leave room', users)
   })
-  socket.on('chat message', function (msg, username) {
+  socket.on('chat message', function (msg, username, timestamp) {
     // console.log('message: ' + msg + ' from: ' + username)
-    io.emit('chat message', msg, username)
+    io.emit('chat message', msg, username, timestamp)
   })
   socket.on('join room', function (username) {
     let obj = new Object()
     obj.name = username
     obj.id = socket.id
+    obj.typing = false
     users.push(obj)
     io.emit('join room', users)
+  })
+  socket.on('typing', function (username) {
+    io.emit('typing', username)  
   })
   socket.on('error', (error) => {
     console.log('Error(s): ' + error)
