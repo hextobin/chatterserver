@@ -4,11 +4,11 @@ var http = require('http').Server(app)
 var io = require('socket.io')(http)
 let users = []
 
-// io.set('origins', 'localhost:3002:80')
+io.set(['origins', 'https://hextobin.github.io/chatterclient/:80'])
 
-app.use(cors({
-  origin: 'http://localhost:3001'
-}));
+// app.use(cors({
+//   origin: 'http://localhost:3001'
+// }));
 
 
 io.on('connection', function (socket) {
