@@ -7,7 +7,7 @@ let users = []
 // io.set(['origins', 'https://hextobin.github.io/chatterclient/:80'])
 // io.set(['origins', 'http://localhost:3001:80'])
 // io.origins(['http://localhost:3002']);
-io.origins(['https://hextobin.github.io/chatterclient/']);
+io.origins(['https://hextobin.github.io/chatterclient/:80']);
 
 // app.use(cors({
 //   origin: 'http://localhost:3001'
